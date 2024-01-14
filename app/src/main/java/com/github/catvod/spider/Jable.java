@@ -64,7 +64,10 @@ public class Jable extends Spider {
             String id = url.split("/")[4];
             list.add(new Vod(id, name, pic));
         }
-        return Result.string(list);
+//        return Result.string(list);
+        //翻页
+        int page = Integer.parseInt(pg), limit = 12, total = 0;
+        return Result.get().vod(list).page(page, 2000, limit, total).toString();
     }
 
     @Override
